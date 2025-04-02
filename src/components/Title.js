@@ -8,9 +8,10 @@ const Title = () => {
 }
 
 const styles = StyleSheet.create({
-    titulo: {
-        fontSize: 'larger',
+    title: {
+        fontSize: 30,
         textAlign: 'center',
+        fontWeight: 'bold',
     },
 })
 

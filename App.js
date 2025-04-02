@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import Title from './src/components/Title';
+import FormIMC from './src/components/formIMC';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ImageBackground
+      source={require("./assets/background.png")} // 🔥 Adicione uma imagem de estrelas aqui
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={styles.container}>
+        <Title/>
+        <FormIMC/>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center", // 🔥 Centraliza os elementos verticalmente
+    alignItems: "center", // 🔥 Centraliza os elementos horizontalmente
+    paddingTop: 100,
+    width: "100%",
+  },
+  background: {
+    flex: 1,
+    width: "100%",
   },
 });
