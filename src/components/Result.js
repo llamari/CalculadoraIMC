@@ -11,15 +11,16 @@ const Result = ({imc}) => {
 const styles = StyleSheet.create({
     resultadoContainer: {
         height: 60,
-        backgroundColor: '#A6ADFF',
-        borderRadius: 40,
+        backgroundColor: '#5C6AFF',
+        borderRadius: 30,
         justifyContent: 'center', 
         alignItems: 'center',
         paddingHorizontal: 20,
-        marginTop: 10
+        marginBottom: 15,
+        width: '80%'
     },
     resultado: {
-        fontSize: 24,
+        fontSize: 22,
         color: '#000',
     }
 });

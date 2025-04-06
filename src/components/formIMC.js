@@ -1,12 +1,18 @@
+//importações
 import { View, TextInput, TouchableOpacity, StyleSheet, Text } from "react-native";
 import { useState } from "react";
 import Result from "./Result";
+import ClassificaIMC from "./ClassificacaoIMC";
+import AlturaIdeal from "./AlturaIdeal";
 
+//função principal
 const FormIMC = () => {
+    //declaração de variáveis (useState())
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
     const [imc, setImc] = useState();
 
+    //funções
     function CalcularIMC() {
         if (peso && altura) {
             const alturaMetros = parseFloat(altura) / 100;
@@ -15,6 +21,7 @@ const FormIMC = () => {
         }
     }
 
+    //retorna um arquivo JSX
     return (
         <View style={styles.container}>
             <TextInput
@@ -32,14 +39,15 @@ const FormIMC = () => {
                 keyboardType="numeric"
             />
             <TouchableOpacity style={styles.botao} onPress={CalcularIMC}>
-                <Text>Calcular IMC</Text>
+                <Text style={styles.textoBotao}>Calcular IMC</Text>
             </TouchableOpacity>
 
-            {imc && <Result imc={imc} />}
+            {imc && <Text style={styles.resultados}> <Result imc={imc} /> <ClassificaIMC imc={imc}/> <AlturaIdeal altura={altura}/></Text>}
         </View>
     );
 }
 
+//variável de estização (objeto)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -56,12 +64,29 @@ const styles = StyleSheet.create({
         marginVertical: 10, 
     },
     botao: {
-        backgroundColor: '#5C6AFF',
+        backgroundColor: '#2B3EFF',
         height: 50,
         justifyContent: 'center',
         padding: 10,
-        borderRadius: 40,
-    }
+        marginBottom: 15,
+        borderRadius: 30,
+        alignItems: 'center',
+        width: '65%',
+    },
+    textoBotao: {
+        fontSize: 24,
+        color: '#FFF',
+        textAlign: 'center',
+    },
+    resultados: {
+        backgroundColor: '#E5E7FF',
+        paddingVertical: 15,
+        paddingHorizontal: 0,
+        borderRadius: 20,
+        width: '82%',
+        textAlign: 'center'
+    }      
 });
 
+//exportação da função principal
 export default FormIMC;

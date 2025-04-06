@@ -5,7 +5,7 @@ import FormIMC from './src/components/formIMC';
 export default function App() {
   return (
     <ImageBackground
-      source={require("./assets/background.png")} // 🔥 Adicione uma imagem de estrelas aqui
+      source={require("./assets/background.png")} 
       style={styles.background}
       resizeMode="cover"
     >
@@ -20,8 +20,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center", // 🔥 Centraliza os elementos verticalmente
-    alignItems: "center", // 🔥 Centraliza os elementos horizontalmente
+    justifyContent: "center",
+    alignItems: "center", 
     paddingTop: 100,
     width: "100%",
   },
