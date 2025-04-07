@@ -3,7 +3,7 @@ import { View, TextInput, TouchableOpacity, StyleSheet, Text } from "react-nativ
 import { useState } from "react";
 import Result from "./Result";
 import ClassificaIMC from "./ClassificacaoIMC";
-import AlturaIdeal from "./PesoIdeal";
+import PesoIdeal from "./PesoIdeal";
 
 //função principal
 const FormIMC = () => {
@@ -11,13 +11,18 @@ const FormIMC = () => {
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
     const [imc, setImc] = useState();
+    const [erro, setErro] = useState()
 
     //funções
     function CalcularIMC() { //função para calcular o IMC
-        if (peso && altura) { //só calcula se houver peso e altura
+        if ((peso && altura) && (!isNaN(peso) && (!isNaN(altura)))) { //só calcula se houver peso e altura
             const alturaMetros = parseFloat(altura) / 100; //transformade cm pra m
             const IMCCalculado = (parseFloat(peso) / (alturaMetros * alturaMetros)).toFixed(2); //calcula o IMC
             setImc(IMCCalculado);
+            setErro();
+        } else{
+            setImc();
+            setErro(true);
         }
     }
 
@@ -38,6 +43,9 @@ const FormIMC = () => {
                 onChangeText={setPeso} //guarda o valor do input na variável peso
                 keyboardType="numeric" //permite que o usuário possa apenas inserir números
             />
+ 
+            {erro && <Text style={styles.erro}>Insira valores válidos para calcular!</Text>}
+ 
             <TouchableOpacity style={styles.botao} onPress={CalcularIMC}> {/*"Botão" que chama a função de calcular IMC*/}
                 <Text style={styles.textoBotao}>Calcular IMC</Text>
             </TouchableOpacity>
@@ -85,7 +93,10 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: '82%',
         textAlign: 'center'
-    }      
+    },
+    erro: {
+        color: 'red',
+    }
 });
 
 //exportação da função principal
