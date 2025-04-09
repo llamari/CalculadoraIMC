@@ -1,6 +1,6 @@
 # Calculadora de IMC
 ## Vídeo explicando algumas funcionalidades 
-https://youtu.be/1PmD349tAf4?si=SFTrBHJsp4sTNXc-
+[Vídeo explicativo](https://youtu.be/1PmD349tAf4?si=SFTrBHJsp4sTNXc-)
 
 ## Objetivo
 Esse projeto tem como objetivo desenvolver um app em React Native para calcular IMC.
