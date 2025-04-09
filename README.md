@@ -33,6 +33,6 @@ npm install
 ```
 4. Execute o app com expo
 ```bash
-npx expo start
+npx expo start --tunnel
 ```
 5. Escaneie o QR code com o app Expo Go no seu celular ou rode no emulador.
